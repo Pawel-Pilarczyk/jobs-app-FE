@@ -1,10 +1,11 @@
-import React from "react";
-import styles from "./style.module.scss";
+import React from 'react';
+import styles from './style.module.scss';
+import { Button } from './components';
 
 function App() {
   return (
     <div className={styles.test}>
-      <h1>My app</h1>
+      <Button></Button>
     </div>
   );
 }

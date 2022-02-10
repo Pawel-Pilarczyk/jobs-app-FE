@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,9 +17,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "paths": {
+      "components": ["./src/components"]
+    }
   },
-  "include": [
-    "src",  
-    "webpack.config.js" ,
-    "declaration.d.ts"]
+  "include": ["src", "webpack.config.js", "declaration.d.ts"]
 }
