@@ -1,11 +1,18 @@
 {
+  "presets": [
+    ["@babel/preset-env", { "targets": { "node": "current" } }, "app_@babel/preset-env"],
+    "@babel/react",
+    "@babel/preset-typescript"
+  ],
   "plugins": [
+    "@babel/plugin-proposal-class-properties",
     [
       "module-resolver",
       {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
         "root": ["."],
         "alias": {
-          "components": "./src/components"
+          "@components": "./src/components"
         }
       }
     ]

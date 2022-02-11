@@ -1,29 +1,121 @@
-module.exports = {
-  //mode: "production",
-  mode: "development",
-  devtool: "inline-source-map",
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-  entry: ["./src/app.tsx" /*main*/],
+const fileModuleRegex = /\.(png|jpg|gif)$/;
+const fontModuleRegex = /\.(ttf|woff|woff2|eot)$/;
+const isDev = process.env.NODE_ENV === 'development';
+
+const filename = (extensions) => (isDev ? `[name].${extensions}` : `[name].[hash].${extensions}`);
+
+module.exports = {
+  mode: 'development',
+  context: path.resolve(__dirname, 'src'),
+  entry: ['@babel/polyfill', './index.tsx'],
   output: {
-    filename: "./bundle.js", // in /dist
+    filename: filename('js'),
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   resolve: {
-    // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@components': path.resolve(__dirname, 'src/components'),
+    },
   },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
+  plugins: [new MiniCssExtractPlugin()],
+  devServer: {
+    port: 4200,
+    hot: isDev,
+    historyApiFallback: true,
+  },
+  plugins: [
+    new Dotenv({
+      systemvars: true,
+    }),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      minify: {
+        collapseWhitespace: !isDev,
+      },
+    }),
+    new MiniCssExtractPlugin({
+      filename: filename('css'),
+    }),
+    new CopyPlugin({
+      patterns: [{ from: '../public', to: '../dist' }],
+    }),
+  ],
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "ts-loader" },
-
       {
-        test: /\.scss$/,
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: ['ts-loader'],
+      },
+      {
+        test: /\.module\.css$/,
         use: [
-          { loader: "style-loader" }, // to inject the result into the DOM as a style block
-          { loader: "css-modules-typescript-loader" }, // to generate a .d.ts module next to the .scss file (also requires a declaration.d.ts with "declare modules '*.scss';" in it to tell TypeScript that "import styles from './styles.scss';" means to load the module "./styles.scss.d.td")
-          { loader: "css-loader", options: { modules: true } }, // to convert the resulting CSS to Javascript to be bundled (modules:true to rename CSS classes in output to cryptic identifiers, except if wrapped in a :global(...) pseudo class)
-          { loader: "sass-loader" }, // to convert SASS to CSS
-          // NOTE: The first build after adding/removing/renaming CSS classes fails, since the newly generated .d.ts typescript module is picked up only later
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
         ],
+      },
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.module\.s[ac]ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/,
+        exclude: /\.module\.s[ac]ss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: fileModuleRegex,
+        use: ['file-loader'],
+      },
+      {
+        test: fontModuleRegex,
+        use: ['file-loader'],
       },
     ],
   },
