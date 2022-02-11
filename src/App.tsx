@@ -1,12 +1,8 @@
-import React from "react";
-import styles from "./style.module.scss";
+import React from 'react';
+import styles from './test.module.scss';
 
-function App() {
-  return (
-    <div className={styles.test}>
-      <h1>My app</h1>
-    </div>
-  );
-}
+const App: React.FC = () => {
+  return <h1 className={styles.test}>Hello</h1>;
+};
 
 export default App;
