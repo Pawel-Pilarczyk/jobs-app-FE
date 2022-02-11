@@ -12,7 +12,9 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
         "root": ["."],
         "alias": {
-          "@components": "./src/components"
+          "@assets": "./src/assets",
+          "@components": "./src/components",
+          "@constants": "./src/constants"
         }
       }
     ]
