@@ -13,6 +13,12 @@
     font-size: 14px;
     letter-spacing: 1.25px;
   }
+  &Disabled,
+  &Disabled:hover {
+    border-color: $grey;
+    color: $grey;
+    cursor: default;
+  }
 }
 
 .wrapperLarge {
@@ -21,12 +27,16 @@
 
 .wrapperMedium {
   width: 113px;
-  color: #ffffff;
+  color: $white;
 }
 
 .primary {
   background-color: $primary;
   color: $white;
+  svg {
+    filter: invert(100%) sepia(0%) saturate(7495%) hue-rotate(162deg) brightness(103%) contrast(103%);
+  }
+
   &:hover {
     background-color: $primaryLight;
   }
@@ -38,41 +48,60 @@
     background-color: $grey;
     cursor: default;
   }
-  svg {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
-  }
 }
 
 .outline {
   border: 2px solid $primary;
   color: $primary;
+  svg {
+    filter: invert(31%) sepia(63%) saturate(1812%) hue-rotate(195deg) brightness(94%) contrast(91%);
+  }
   &:hover {
     border-color: $primaryLight;
     color: $primaryLight;
+    svg {
+      filter: invert(47%) sepia(84%) saturate(1453%) hue-rotate(193deg) brightness(100%) contrast(101%);
+    }
   }
   &:active {
     border-color: $primaryDark;
     color: $primaryDark;
+    svg {
+      filter: invert(24%) sepia(68%) saturate(1298%) hue-rotate(182deg) brightness(92%) contrast(100%);
+    }
   }
   &Disabled,
   &Disabled:hover {
     border-color: $grey;
     color: $grey;
-    cursor: default;
+    svg {
+      filter: invert(97%) sepia(4%) saturate(142%) hue-rotate(178deg) brightness(116%) contrast(76%);
+    }
   }
 }
 
 .text {
   color: $primary;
+  svg {
+    filter: invert(31%) sepia(63%) saturate(1812%) hue-rotate(195deg) brightness(94%) contrast(91%);
+  }
   &:hover {
     color: $primaryLight;
+    svg {
+      filter: invert(47%) sepia(84%) saturate(1453%) hue-rotate(193deg) brightness(100%) contrast(101%);
+    }
   }
   &:active {
     color: $primaryDark;
+    svg {
+      filter: invert(24%) sepia(68%) saturate(1298%) hue-rotate(182deg) brightness(92%) contrast(100%);
+    }
   }
   &Disabled,
   &Disabled:hover {
     color: $grey;
-    cursor: default;
+    svg {
+      filter: invert(97%) sepia(4%) saturate(142%) hue-rotate(178deg) brightness(116%) contrast(76%);
+    }
   }
 }
