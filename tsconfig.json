@@ -17,8 +17,10 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
+      "@assets/*": ["./src/assets/*"],
       "@components": ["./src/components"],
       "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"]
     }
   },
   "include": ["src", "typings.d.ts"],
