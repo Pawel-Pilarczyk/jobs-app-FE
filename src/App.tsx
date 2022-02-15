@@ -4,14 +4,14 @@ import './styles.scss';
 
 const App: React.FC = () => {
   const [text, setText] = useState('');
-  const handleSetText = (e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value);
+  const handleSetText = (e: React.ChangeEvent) => setText(e?.currentTarget?.nodeValue as string);
 
   return (
     <div>
       <Button size="large" type="primary" disabled>
         Hello
       </Button>
-      <Input onChange={handleSetText} type="password" value={text} error="123" size="small" />
+      <Input onChange={handleSetText} type="textArea" value={text} size="large" error="123" />
     </div>
   );
 };
