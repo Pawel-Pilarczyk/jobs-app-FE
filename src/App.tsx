@@ -1,18 +1,17 @@
-import React from 'react';
-import { Button } from '@components';
+import React, { useState } from 'react';
+import { Button, Input } from '@components';
+import './styles.scss';
 
 const App: React.FC = () => {
+  const [text, setText] = useState('');
+  const handleSetText = (e: React.ChangeEvent) => setText(e?.currentTarget?.nodeValue as string);
+
   return (
     <div>
       <Button size="large" type="primary" disabled>
         Hello
       </Button>
-      <Button size="large" type="outline" iconLeft="warning" iconRight="warning" disabled>
-        Hello
-      </Button>
-      <Button size="large" type="text" iconLeft="arrowRight" iconRight="arrowRight">
-        Hello
-      </Button>
+      <Input onChange={handleSetText} type="textArea" value={text} size="large" error="123" />
     </div>
   );
 };
