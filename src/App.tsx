@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Input } from '@components';
+import { Checkbox } from '@components';
 import './styles.scss';
 
 const App: React.FC = () => {
-  const [text, setText] = useState('');
-  const handleSetText = (e: React.ChangeEvent) => setText(e?.currentTarget?.nodeValue as string);
+  const [checked, setChecked] = useState(false);
+  const toggleChecked = () => setChecked((value) => !value);
 
   return (
     <div>
-      <Button size="large" type="primary" disabled>
-        Hello
-      </Button>
-      <Input onChange={handleSetText} type="textArea" value={text} size="large" error="123" />
+      <Checkbox checked={checked} handleClick={toggleChecked} />
     </div>
   );
 };
