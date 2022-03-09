@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Select checked={checked} handleClick={toggleChecked} />
+      <Select checked={checked} handleClick={toggleChecked} label="Test testś" />
     </div>
   );
 };

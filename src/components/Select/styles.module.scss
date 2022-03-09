@@ -1,12 +1,23 @@
 @import '@styles/constants';
 
 .wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.wrapperSelect {
   width: 50px;
   height: 24px;
-  border: 1px solid $primary;
+  border: 1px solid $primaryDark;
   border-radius: 14px;
   position: relative;
   cursor: pointer;
+  transition: background-color 0.5s;
   > div {
     width: 18px;
     height: 18px;
@@ -16,12 +27,20 @@
     top: 50%;
     transform: translateY(-50%);
     left: 5%;
-    transition: left 1.5s;
+    transition: left 0.5s;
   }
 }
 
-.wrapperActive {
+.wrapperSelectActive {
+  background-color: $primaryLight;
   > div {
     left: calc(95% - 18px);
+  }
+}
+
+.wrapperSelectDisabled {
+  border-color: $grey;
+  > div {
+    background-color: $grey;
   }
 }
