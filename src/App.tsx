@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox } from '@components';
+import { Select } from '@components';
 import './styles.scss';
 
 const App: React.FC = () => {
@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Checkbox checked={checked} handleClick={toggleChecked} />
+      <Select checked={checked} handleClick={toggleChecked} label="Test testś" />
     </div>
   );
 };
