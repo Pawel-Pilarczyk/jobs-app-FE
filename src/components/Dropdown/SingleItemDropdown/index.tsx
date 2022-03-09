@@ -8,9 +8,10 @@ type Props = {
   label: string;
   data?: Array<any>;
   icon?: boolean;
+  handleClick: (label: string) => void;
 };
 
-const SingleItemDropdown = ({ label, icon }: Props): JSX.Element => {
+const SingleItemDropdown = ({ handleClick, data, label, icon }: Props): JSX.Element => {
   const [open, setOpen] = useState(true);
 
   const handleToggleOpen = () => {
@@ -35,10 +36,9 @@ const SingleItemDropdown = ({ label, icon }: Props): JSX.Element => {
           [styles.contentActive]: open,
         })}
       >
-        <DropdownItem label="test" onClick={() => []} />
-        <DropdownItem label="test" onClick={() => []} />
-        <DropdownItem label="test" onClick={() => []} />
-        <DropdownItem label="test" onClick={() => []} />
+        {data?.map(({ label, icon }) => (
+          <DropdownItem label={label} handleClick={() => handleClick(label)} key={label} icon={icon} />
+        ))}
       </div>
     </div>
   );

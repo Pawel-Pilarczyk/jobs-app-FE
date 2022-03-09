@@ -3,13 +3,13 @@ import styles from './styles.module.scss';
 
 type Props = {
   label: string;
-  onClick: () => void;
+  handleClick: () => void;
   icon?: JSX.Element;
 };
 
-const DropdownItem = ({ label, onClick, icon }: Props): JSX.Element => {
+const DropdownItem = ({ label, handleClick, icon }: Props): JSX.Element => {
   return (
-    <div onClick={onClick} className={styles.wrapper}>
+    <div onClick={handleClick} className={styles.wrapper}>
       {icon && icon}
       <p>{label}</p>
     </div>

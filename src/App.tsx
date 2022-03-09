@@ -5,7 +5,7 @@ import './styles.scss';
 const App: React.FC = () => {
   return (
     <div>
-      <SingleItemDropdown data={[]} label="Hello" icon />
+      <SingleItemDropdown data={[]} label="Hello" icon handleClick={() => []} />
     </div>
   );
 };
