@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
-import styles from './styles.module.scss';
 import DropdownItem from '../DropdownItem';
 import { File, VectorDown } from '@assets/svg';
+import styles from './styles.module.scss';
 
-type Props = {
+export type TData = {
   label: string;
-  data?: Array<any>;
-  icon?: boolean;
-  handleClick: (label: string) => void;
+  value: any;
+  icon?: JSX.Element;
 };
 
-const SingleItemDropdown = ({ handleClick, data, label, icon }: Props): JSX.Element => {
-  const [open, setOpen] = useState(true);
+type Props = {
+  value: string;
+  placeholder?: string;
+  data?: Array<TData>;
+  icon?: boolean;
+  setValue: (label: string) => void;
+};
+
+const SingleItemDropdown = ({ setValue, data, value, icon, placeholder }: Props): JSX.Element => {
+  const [open, setOpen] = useState(false);
 
   const handleToggleOpen = () => {
     setOpen((value: boolean) => !value);
+  };
+
+  const handleClickEvent = (value: string) => () => {
+    setValue(value);
+    handleToggleOpen();
   };
 
   return (
@@ -27,19 +39,21 @@ const SingleItemDropdown = ({ handleClick, data, label, icon }: Props): JSX.Elem
       >
         <section>
           {icon && <File />}
-          <p>{label}</p>
+          {value ? <p>{value}</p> : <p className={styles.placeholder}> {placeholder}</p>}
         </section>
         <VectorDown onClick={handleToggleOpen} />
       </div>
-      <div
-        className={cn(styles.content, {
-          [styles.contentActive]: open,
-        })}
-      >
-        {data?.map(({ label, icon }) => (
-          <DropdownItem label={label} handleClick={() => handleClick(label)} key={label} icon={icon} />
-        ))}
-      </div>
+      {data?.length ? (
+        <div
+          className={cn(styles.content, {
+            [styles.contentActive]: open,
+          })}
+        >
+          {data?.map(({ label, icon }) => (
+            <DropdownItem label={label} handleClick={handleClickEvent(label)} key={label} icon={icon} />
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 };
