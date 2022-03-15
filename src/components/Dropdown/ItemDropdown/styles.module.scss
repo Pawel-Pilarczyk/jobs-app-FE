@@ -19,7 +19,10 @@
   padding: 0 10px 0 10px;
 
   > section {
+    max-width: 80%;
     display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
 
     > p {
       margin-left: 10px;

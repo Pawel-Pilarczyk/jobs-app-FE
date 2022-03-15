@@ -7,3 +7,4 @@ export { default as EyeClosed } from './eye-closed.svg';
 export { default as Checked } from './checked.svg';
 export { default as File } from './file.svg';
 export { default as VectorDown } from './vector-down.svg';
+export { default as Close } from './close.svg';
