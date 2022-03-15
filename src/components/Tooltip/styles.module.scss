@@ -1,0 +1,29 @@
+@import '@styles/constants';
+
+.wrapper {
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    > div {
+      opacity: 1;
+    }
+  }
+
+  p {
+    color: $white;
+  }
+}
+
+.messageWrapper {
+  position: absolute;
+  z-index: 999;
+  opacity: 0;
+  background-color: $primary;
+  border-radius: 10px;
+  width: 140px;
+  height: 40px;
+}
+
+.top {
+  top: -50px;
+}
