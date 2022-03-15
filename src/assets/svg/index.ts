@@ -5,3 +5,6 @@ export { default as Confirm } from './confirm.svg';
 export { default as EyeOpen } from './eye-open.svg';
 export { default as EyeClosed } from './eye-closed.svg';
 export { default as Checked } from './checked.svg';
+export { default as File } from './file.svg';
+export { default as VectorDown } from './vector-down.svg';
+export { default as Close } from './close.svg';

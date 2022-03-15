@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { Select } from '@components';
+import { ItemDropdown } from '@components';
+import { TData } from '@components/Dropdown/ItemDropdown';
 import './styles.scss';
 
-const App: React.FC = () => {
-  const [checked, setChecked] = useState(false);
-  const toggleChecked = () => setChecked((value) => !value);
+const data: Array<TData> = [
+  { label: '123', value: '123' },
+  { label: '123', value: '123' },
+];
 
+const App: React.FC = () => {
+  const [value, setValue] = useState<Array<string>>([]);
+  const handleSetValue = (newValue: string) => {
+    const v = [...value, newValue];
+    setValue(v);
+  };
   return (
     <div>
-      <Select checked={checked} handleClick={toggleChecked} label="Test testś" />
+      <ItemDropdown data={data} value={value} setValue={handleSetValue} placeholder="Name" multipleItems />
     </div>
   );
 };
