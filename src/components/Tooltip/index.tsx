@@ -19,6 +19,7 @@ const index = ({ message, position = 'top' }: TProps): JSX.Element => {
         })}
       >
         <p>{message}</p>
+        <div />
       </div>
     </div>
   );

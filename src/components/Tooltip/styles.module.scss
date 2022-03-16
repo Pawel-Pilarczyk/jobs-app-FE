@@ -16,14 +16,38 @@
 
 .messageWrapper {
   position: absolute;
-  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  z-index: 888;
   opacity: 0;
   background-color: $primary;
   border-radius: 10px;
   width: 140px;
-  height: 40px;
+  min-height: 40px;
+  max-height: 80px;
+  left: -10px;
+  > div {
+    width: 10px;
+    height: 10px;
+    background-color: $primary;
+    position: absolute;
+    left: 15px;
+    transform: rotate(45deg);
+  }
 }
 
 .top {
-  top: -50px;
+  bottom: 40px;
+  > div {
+    bottom: -5px;
+  }
+}
+.bottom {
+  top: 40px;
+  > div {
+    top: -5px;
+  }
 }
