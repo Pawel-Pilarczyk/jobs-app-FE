@@ -1,0 +1,53 @@
+@import '@styles/constants';
+
+.wrapper {
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    > div {
+      opacity: 1;
+    }
+  }
+
+  p {
+    color: $white;
+  }
+}
+
+.messageWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  z-index: 888;
+  opacity: 0;
+  background-color: $primary;
+  border-radius: 10px;
+  width: 140px;
+  min-height: 40px;
+  max-height: 80px;
+  left: -10px;
+  > div {
+    width: 10px;
+    height: 10px;
+    background-color: $primary;
+    position: absolute;
+    left: 15px;
+    transform: rotate(45deg);
+  }
+}
+
+.top {
+  bottom: 40px;
+  > div {
+    bottom: -5px;
+  }
+}
+.bottom {
+  top: 40px;
+  > div {
+    top: -5px;
+  }
+}
