@@ -44,7 +44,7 @@ const Input = ({
         <textarea ref={refTexArea} value={value} onChange={onChange} maxLength={maxLength} placeholder={placeholder} />
       ) : (
         <input
-          type={passVisible ? 'text' : 'password'}
+          type={!passVisible && type === 'password' ? 'password' : 'text'}
           ref={ref}
           value={value}
           onChange={onChange}
