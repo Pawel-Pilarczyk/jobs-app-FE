@@ -2,16 +2,20 @@
 
 .wrapper {
   width: 100vw;
-  height: 100vh;
-  background-color: $grey;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
 }
 
 .header {
+  position: fixed;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: $white;
+  background-color: rgba(88, 88, 88, 0.164);
   padding: 0 5% 0 5%;
 
   > div {
@@ -22,4 +26,43 @@
 
 .spacer {
   margin-right: 20px;
+}
+
+.footer {
+  margin-top: 10%;
+  margin-bottom: 2%;
+}
+
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 15% 10% 10% 10%;
+  padding: 25px 0 25px 0;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
+  h1 {
+    font-weight: 300;
+  }
+  p {
+    margin-bottom: 25px;
+  }
+  > img {
+    width: 40%;
+  }
+  > div {
+    width: 40%;
+  }
+}
+
+.bottomSection {
+  width: 80%;
+  height: 450px;
+  background-color: $grey;
 }
