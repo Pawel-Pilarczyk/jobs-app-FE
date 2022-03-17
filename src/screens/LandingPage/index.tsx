@@ -8,7 +8,7 @@ const index = (): JSX.Element => {
       <header className={styles.header}>
         <h1>JA</h1>
         <div>
-          <Button size="large" type="primary">
+          <Button size="large" type="primary" style={styles.spacer}>
             Sign In
           </Button>
           <Button size="large" type="outline">
@@ -16,6 +16,8 @@ const index = (): JSX.Element => {
           </Button>
         </div>
       </header>
+      <section></section>
+      <footer></footer>
     </div>
   );
 };
