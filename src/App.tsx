@@ -1,9 +1,13 @@
 import React from 'react';
-import { LandingPage } from '@screens';
+import { Footer } from '@components';
 import './styles.scss';
 
 const App: React.FC = () => {
-  return <LandingPage />;
+  return (
+    <div>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;
