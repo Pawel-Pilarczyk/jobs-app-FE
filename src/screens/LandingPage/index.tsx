@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Footer } from '@components';
-import { numericData } from './data';
+import { numericData, bottomSectionData } from './data';
 import image from '@assets/images/landing-page.jpg';
 import styles from './styles.module.scss';
 
@@ -19,7 +19,7 @@ const index = (): JSX.Element => {
         </div>
       </header>
       <section className={styles.sectionWrapper}>
-        <div className="numericWrapper">
+        <div className={styles.numericWrapper}>
           {numericData.map(({ label, description }) => (
             <div key={label}>
               <h1>{label}</h1>
@@ -32,6 +32,8 @@ const index = (): JSX.Element => {
             <h1>Headline</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Neque vitae tempus quam pellentesque nec nam.
             </p>
             <Button size="large" type="outline" iconRight="arrowRight">
@@ -40,7 +42,24 @@ const index = (): JSX.Element => {
           </div>
           <img src={image} />
         </div>
-        <div className={styles.bottomSection}></div>
+        <div className={styles.bottomSection}>
+          <div>
+            <h3>Header</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+              etdolore magna aliqua. Neque vitae tempus quam pellentesque nec nam,
+            </p>
+          </div>
+          <section className={styles.line} />
+          <div>
+            {bottomSectionData.map((item) => (
+              <div key={item.id}>
+                <h3>{item.label}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
       <Footer style={styles.footer} />
     </div>
