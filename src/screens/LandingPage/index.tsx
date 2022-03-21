@@ -4,11 +4,11 @@ import { numericData, bottomSectionData } from './data';
 import image from '@assets/images/landing-page.jpg';
 import styles from './styles.module.scss';
 
-const index = (): JSX.Element => {
+const LandingPage = (): JSX.Element => {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <h1>JA</h1>
+        <h1>LOGO</h1>
         <div>
           <Button size="large" type="primary" style={styles.spacer}>
             Sign In
@@ -53,7 +53,7 @@ const index = (): JSX.Element => {
           <section className={styles.line} />
           <div>
             {bottomSectionData.map((item) => (
-              <div key={item.id}>
+              <div key={item.id} className={styles.bottomSectionDataWrapper}>
                 <h3>{item.label}</h3>
                 <p>{item.description}</p>
               </div>
@@ -66,4 +66,4 @@ const index = (): JSX.Element => {
   );
 };
 
-export default index;
+export default LandingPage;

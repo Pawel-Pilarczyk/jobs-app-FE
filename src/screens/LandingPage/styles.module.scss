@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .header {
@@ -78,12 +79,10 @@
 .bottomSection {
   width: 80%;
   height: 450px;
-  padding: 5%;
+  padding: 2%;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  -webkit-box-shadow: 10px 2px 26px -1px rgba(66, 68, 90, 0.15);
-  -moz-box-shadow: 10px 2px 26px -1px rgba(66, 68, 90, 0.15);
   box-shadow: 10px 2px 26px -1px rgba(66, 68, 90, 0.15);
   > div {
     width: 40%;
@@ -101,4 +100,15 @@
   width: 1px;
   height: 100%;
   background-color: $greyDark;
+}
+
+.bottomSectionDataWrapper {
+  margin: 10px 15px 15px 10px;
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  p {
+    margin-bottom: 10px;
+  }
 }
