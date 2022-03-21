@@ -20,13 +20,23 @@ export type Props = {
   iconRight?: TIcon;
   onClick?: () => void;
   disabled?: boolean;
+  style?: React.ClassAttributes<HTMLDivElement>;
 };
 
-const Button = ({ children, disabled, size = 'large', type, iconLeft, iconRight, onClick }: Props): JSX.Element => {
+const Button = ({
+  children,
+  disabled,
+  size = 'large',
+  type,
+  iconLeft,
+  iconRight,
+  onClick,
+  style,
+}: Props): JSX.Element => {
   return (
     <div
       onClick={onClick}
-      className={cn(styles.wrapper, {
+      className={cn(styles.wrapper, style, {
         [styles.wrapperLarge]: size === 'large',
         [styles.wrapperMedium]: size === 'medium',
         [styles.primary]: type === 'primary',

@@ -1,0 +1,114 @@
+@import '@styles/constants';
+
+.wrapper {
+  width: 100vw;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.header {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(88, 88, 88, 0.164);
+  padding: 0 5% 0 5%;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.spacer {
+  margin-right: 20px;
+}
+
+.footer {
+  margin-top: 10%;
+  margin-bottom: 2%;
+}
+
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 5% 10% 5% 10%;
+  padding: 25px 0 25px 0;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
+  h1 {
+    font-weight: 300;
+  }
+  p {
+    margin-bottom: 25px;
+  }
+  > img {
+    width: 40%;
+  }
+  > div {
+    width: 40%;
+  }
+}
+
+.numericWrapper {
+  width: 100vw;
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  > div {
+    text-align: center;
+    > h1 {
+      margin: 5px;
+    }
+  }
+}
+
+.bottomSection {
+  width: 80%;
+  height: 450px;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 10px 2px 26px -1px rgba(66, 68, 90, 0.15);
+  > div {
+    width: 40%;
+  }
+  > div:first-child {
+    h3 {
+      font-size: 2.75rem;
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.line {
+  width: 1px;
+  height: 100%;
+  background-color: $greyDark;
+}
+
+.bottomSectionDataWrapper {
+  margin: 10px 15px 15px 10px;
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  p {
+    margin-bottom: 10px;
+  }
+}
